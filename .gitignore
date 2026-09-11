@@ -1,0 +1,98 @@
+
+
+venv/
+__pycache__/
+
+*.pyc
+
+# Node
+
+frontend/node_modules/
+
+frontend/build/
+
+# Environment
+
+.env
+
+.env.local
+
+# macOS
+
+.DS_Store
+
+# IDE
+
+.vscode/
+
+.idea/
+
+# Uploads & Generated Files
+
+backend/uploads/
+
+backend/reports/
+
+backend/charts/
+
+# Datasets
+
+dataset/
+
+datasets/
+
+data/
+
+*.csv
+
+*.zip
+
+# Trained Models (optional if too large)
+
+backend/models/*.h5
+
+backend/models/*.pt
+
+backend/models/*.pth
+
+# Logs
+
+*.log
+image_ai/
+uploads/
+backend/uploads/
+outputs/
+reports/
+dataset/
+venv/
+
+*.h5
+*.keras
+*.pkl
+*.joblib
+*.pt
+*.pth
+
+*.jpg
+*.jpeg
+*.png
+*.wav
+*.mp3
+*.m4a
+# Exported Docker images
+forge-backend.tar
+forge-frontend.tar
+*.tar
+
+# Runtime and generated data
+venv/
+frontend/node_modules/
+**/__pycache__/
+*.pyc
+.DS_Store
+uploads/
+reports/
+outputs/
+audio_evaluation_results/
+backend/requirements.txt.bak*
+*.tar

@@ -1,0 +1,61 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+
+    container_name: forge-backend
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      PYTHONUNBUFFERED: "1"
+      PYTHONFAULTHANDLER: "1"
+      TF_CPP_MIN_LOG_LEVEL: "2"
+      TOKENIZERS_PARALLELISM: "false"
+      CUDA_VISIBLE_DEVICES: ""
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      TF_NUM_INTRAOP_THREADS: "1"
+      TF_NUM_INTEROP_THREADS: "1"
+      HF_HOME: "/app/.cache/huggingface"
+      TRANSFORMERS_CACHE: "/app/.cache/huggingface"
+
+    volumes:
+      - ./uploads:/app/uploads
+      - ./reports:/app/reports
+      - ./outputs:/app/outputs
+      - ./backend/reports:/app/backend/reports
+      - ./backend/audio_visuals:/app/backend/audio_visuals
+      - ./backend/charts:/app/backend/charts
+      - forge-huggingface-cache:/app/.cache/huggingface
+
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+
+    container_name: forge-frontend
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      REACT_APP_API_URL: "http://localhost:8000"
+      HOST: "0.0.0.0"
+      PORT: "3000"
+      WATCHPACK_POLLING: "true"
+      CHOKIDAR_USEPOLLING: "true"
+
+    depends_on:
+      - backend
+
+    restart: unless-stopped
+
+volumes:
+  forge-huggingface-cache:
