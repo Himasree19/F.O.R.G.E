@@ -93,26 +93,7 @@ This enables transparent and interpretable forensic decisions.
 
 ## Project Architecture
 
-```text
-Frontend (React)
-        │
-        ▼
-FastAPI Backend
-        │
- ┌──────┼──────┐
- ▼      ▼      ▼
-Text  Image  Audio
-Model Model  Model
- │      │      │
- ▼      ▼      ▼
- XAI   Heatmap Spectrogram
- │      │      │
- └──────┼──────┘
-        ▼
- Investigation Report
-```
-
----
+<img width="1180" height="1333" alt="image" src="https://github.com/user-attachments/assets/9e538489-c810-4d2a-8e57-654774ebb429" />
 
 ## Project Structure
 
@@ -159,14 +140,10 @@ The objective of F.O.R.G.E is to develop an explainable multimodal forensic fram
 
 ## Author
 
-Ashish Ranjan
-
-B.Tech Computer Science
+Himasree Das 
+MCA
 
 Multimodal Deepfake Detection & Explainable AI Research
 
 ---
 
-## License
-
-MIT License
